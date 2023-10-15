@@ -17,18 +17,18 @@ public class SearchStepDefinitions {
     @Steps
     SearchSteps search;
 
-    @Given("{} is researching things on the internet")
-    public void researchingThings(String actor) {
+    @Given("^(?:.*) is researching things on the internet")
+    public void researchingThings() {
         navigate.opensTheHomePage();
     }
 
-    @When("{} looks up {string}")
-    public void searchesFor(String actor, String term) {
+    @When("^(?:.*) looks up \"(.*)\"")
+    public void searchesFor(String term) {
         search.searchForTerm(term);
     }
 
-    @Then("{} should see information about {string}")
-    public void should_see_information_about(String actor, String term) {
+    @Then("^(?:.*) should see information about \"(.*)\"")
+    public void should_see_information_about(String term) {
         assertThat(search.getSearchResults()).anyMatch(title -> title.toLowerCase().contains(term));
 
     }
