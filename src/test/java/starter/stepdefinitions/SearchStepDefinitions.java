@@ -3,30 +3,33 @@ package starter.stepdefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.page.TheWebPage;
-import starter.navigation.NavigateTo;
-import starter.search.LookForInformation;
+import net.serenitybdd.annotations.Steps;
+import starter.actions.NavigateSteps;
+import starter.actions.SearchSteps;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchStepDefinitions {
 
-    @Given("{actor} is researching things on the internet")
-    public void researchingThings(Actor actor) {
-        actor.wasAbleTo(NavigateTo.theSearchHomePage());
+    @Steps
+    NavigateSteps navigate;
+
+    @Steps
+    SearchSteps search;
+
+    @Given("{} is researching things on the internet")
+    public void researchingThings(String actor) {
+        navigate.opensTheHomePage();
     }
 
-    @When("{actor} looks up {string}")
-    public void searchesFor(Actor actor, String term) {
-        actor.attemptsTo(
-                LookForInformation.about(term)
-        );
+    @When("{} looks up {string}")
+    public void searchesFor(String actor, String term) {
+        search.searchForTerm(term);
     }
 
-    @Then("{actor} should see information about {string}")
-    public void should_see_information_about(Actor actor, String term) {
-        actor.attemptsTo(
-                Ensure.that(TheWebPage.title()).containsIgnoringCase(term)
-        );
+    @Then("{} should see information about {string}")
+    public void should_see_information_about(String actor, String term) {
+        assertThat(search.getSearchResults()).anyMatch(title -> title.toLowerCase().contains(term));
+
     }
 }
