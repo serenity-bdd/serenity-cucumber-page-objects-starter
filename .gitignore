@@ -1,3 +1,4 @@
+src/test/resources/config.properties
 target/
 build
 out

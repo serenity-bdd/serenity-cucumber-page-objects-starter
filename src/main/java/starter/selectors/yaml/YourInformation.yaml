@@ -1,0 +1,26 @@
+LoginPage:
+  - button:
+      name: your information
+      locator-type: css
+      locator-value: div.checkout_info
+      wait-for-loaded: true
+  - button:
+      name: first name
+      locator-type: id
+      locator-value: first-name
+      wait-for-loaded: true
+  - button:
+      name: last name
+      locator-type: id
+      locator-value: last-name
+      wait-for-loaded: true
+  - button:
+      name: zip/postal code
+      locator-type: id
+      locator-value: postal-code
+      wait-for-loaded: true
+  - button:
+      Name: continue
+      locator-type: id
+      locator-value: continue
+      wait-for-loaded: true

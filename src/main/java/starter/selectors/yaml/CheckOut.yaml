@@ -1,0 +1,16 @@
+checkOut:
+  - button:
+      name: checkout
+      locator-type: css
+      locator-value: login-button
+      wait-for-loaded: true
+  - button:
+      name: finish
+      locator-type: id
+      locator-value: finish
+      wait-for-loaded: true
+  - button:
+      name: sauce labs backpack
+      locator-type: css
+      locator-value: div.inventory_item_name
+      wait-for-loaded: true
