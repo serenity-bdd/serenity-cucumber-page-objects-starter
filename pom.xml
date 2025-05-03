@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.serenitybdd.starter</groupId>
-    <artifactId>cucumber-starter</artifactId>
+    <artifactId>Smart Fleet</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -17,7 +17,7 @@
         <cucumber-junit-platform-engine.version>7.14.0</cucumber-junit-platform-engine.version>
         <encoding>UTF-8</encoding>
         <tags></tags>
-        <webdriver.base.url></webdriver.base.url>
+        <webdriver.base.url>https://korridor.crownsoftware.co.za/</webdriver.base.url>
     </properties>
     <dependencies>
         <dependency>
